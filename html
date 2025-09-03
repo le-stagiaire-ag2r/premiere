@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de Survie Complet - 1ère Année</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 4px solid #667eea;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .baseline {
+            font-size: 1.3em;
+            color: #666;
+            margin: 20px 0;
+            font-style: italic;
+            font-weight: 300;
+        }
+        
+        .what-you-find {
+            background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 2px solid #e0e7ff;
+        }
+        
+        .what-you-find h3 {
+            color: #667eea;
+            margin-top: 0;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .what-you-find ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .what-you-find li {
+            margin: 12px 0;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        .category {
+            margin: 40px 0;
+            background: #fff;
+            border-left: 6px solid #667eea;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+        
+        .category h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin: 0 0 25px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+        
+        .category-icon {
+            font-size: 2em;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .tip {
+            background: linear-gradient(135deg, #f0f4ff, #fafbff);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .tip::before {
+            content: '💡';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.2em;
+            opacity: 0.7;
+        }
+        
+        .tip h4 {
+            margin: 0 0 12px 0;
+            color: #2d3748;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+        
+        .tip p {
+            margin: 0;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .pro-tip {
+            background: linear-gradient(135deg, #fff5e6, #fff8f0);
+            border-left-color: #ff8c00;
+            border: 1px solid #fed7aa;
+        }
+        
+        .pro-tip::before {
+            content: '⭐';
+        }
+        
+        .tool-spotlight {
+            background: linear-gradient(135deg, #e6fff0, #f0fff4);
+            border-left-color: #38a169;
+            border: 1px solid #c6f6d5;
+        }
+        
+        .tool-spotlight::before {
+            content: '🔧';
+        }
+        
+        .hack {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            border-left-color: #e17055;
+            color: #2d3436;
+            border: 1px solid #fdcb6e;
+        }
+        
+        .hack::before {
+            content: '🚀';
+        }
+        
+        .avoid-box {
+            background: linear-gradient(135deg, #fff5f5, #fed7d7);
+            border: 3px solid #fc8181;
+            border-radius: 18px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .avoid-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 1.5em;
+        }
+        
+        .avoid-box h3 {
+            color: #e53e3e;
+            margin-top: 5px;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        
+        .avoid-box ul li {
+            margin: 15px 0;
+            font-weight: 500;
+            color: #742a2a;
+        }
+        
+        .sos-box {
+            background: linear-gradient(135deg, #f0fff4, #c6f6d5);
+            border: 3px solid #68d391;
+            border-radius: 18px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .sos-box::before {
+            content: '🆘';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 1.5em;
+        }
+        
+        .sos-box h3 {
+            color: #38a169;
+            margin-top: 5px;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        
+        .sos-contact {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #38a169;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .sos-contact strong {
+            color: #2d3748;
+        }
+        
+        .sos-contact .contact-info {
+            color: #4a5568;
+            font-family: monospace;
+            background: #f7fafc;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .conclusion::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .conclusion h3 {
+            margin-top: 0;
+            font-size: 2em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .conclusion p {
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+        
+        .first-steps {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .first-steps h4 {
+            margin: 0 0 20px 0;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        .first-steps ol {
+            margin: 0;
+            padding-left: 25px;
+        }
+        
+        .first-steps li {
+            margin: 12px 0;
+            font-weight: 500;
+            font-size: 1.05em;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #856404;
+            border: 1px solid #fdd835;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .app-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-3px);
+            border-color: #667eea;
+        }
+        
+        .app-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .app-card h5 {
+            margin: 0 0 10px 0;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .app-card p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #4a5568;
+        }
+        
+        .weekly-schedule {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .schedule-day {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .schedule-day:last-child {
+            border-bottom: none;
+        }
+        
+        .day-name {
+            font-weight: 600;
+            width: 80px;
+            color: #495057;
+        }
+        
+        .day-activities {
+            flex: 1;
+            color: #6c757d;
+        }
+        
+        .legend {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid #e0e7ff;
+        }
+        
+        .legend h4 {
+            margin: 0 0 15px 0;
+            color: #4c51bf;
+            font-weight: 600;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        
+        .legend-icon {
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .category {
+                padding: 25px;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sos-contact {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Kit de Survie 1ère Année</h1>
+            <p class="baseline">Le guide ultime testé et approuvé par tes aînés pour réussir, t'intégrer et garder ta santé mentale</p>
+            
+            <div class="what-you-find">
+                <h3>📦 Ce que tu vas y trouver dans ce guide :</h3>
+                <ul>
+                    <li>15+ conseils concrets avec les outils précis à utiliser</li>
+                    <li>Les apps et sites web qui vont révolutionner ton organisation</li>
+                    <li>Un planning type de première année réaliste</li>
+                    <li>Les erreurs fatales à éviter (on y est tous passés)</li>
+                    <li>Tous les contacts SOS pour ne jamais être bloqué</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2><span class="category-icon">📚</span>Vie académique & organisation</h2>
+            
+            <div class="tip pro-tip">
+                <h4>Planning type d'une semaine en 1ère année</h4>
+                <div class="weekly-schedule">
+                    <div class="schedule-day">
+                        <div class="day-name">Lundi</div>
+                        <div class="day-activities">8h-12h : Cours | 13h-14h : Pause déj | 14h-17h15 : Cours | 19h-21h : Révisions + devoirs</div>
+                    </div>
+                    <div class="schedule-day">
+                        <div class="day-name">Mardi</div>
+                        <div class="day-activities">8h-12h : Cours | 13h-14h : Pause déj | 14h-17h15 : Cours | 20h-21h : Lecture cours</div>
+                    </div>
+                    <div class="schedule-day">
+                        <div class="day-name">Mercredi</div>
+                        <div class="day-activities">Pas de cours ! Libre : job étudiant, révisions, projets groupe ou détente</div>
+                    </div>
+                    <div class="schedule-day">
+                        <div class="day-name">Jeudi</div>
+                        <div class="day-activities">8h-12h : Cours | 13h-14h : Pause déj | 14h-17h15 : Travaux pratiques | 18h-21h : Révisions intensives</div>
+                    </div>
+                    <div class="schedule-day">
+                        <div class="day-name">Vendredi</div>
+                        <div class="day-activities">8h-12h : Cours | 13h-14h : Pause déj | 14h-17h15 : Cours | 20h+ : Soirée étudiante</div>
+                    </div>
+                    <div class="schedule-day">
+                        <div class="day-name">Weekend</div>
+                        <div class="day-activities">Complètement libre ! Rattrapage devoirs si besoin | Détente/sorties | Préparation semaine</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip hack">
+                <h4>Méthode Pomodoro 2.0 pour réviser efficacement</h4>
+                <p><strong>Le principe :</strong> 25 min de focus intense + 5 min de pause | Après 4 cycles = pause longue de 30 min<br>
+                <strong>Apps recommandées :</strong> <span class="highlight">Forest</span> (plante des arbres virtuels) | <span class="highlight">Be Focused</span> (iPhone) | <span class="highlight">PomoDone</span> (Android)<br>
+                <strong>Hack bonus :</strong> Utilise la technique "Eat the Frog" = commence toujours par la matière la plus difficile quand tu es frais</p>
+            </div>
+            
+            <div class="tip">
+                <h4>Plan 3 couleurs pour révisions stratégiques</h4>
+                <p><span style="background: #c6f6d5; padding: 3px 8px; border-radius: 4px;">✅ Vert = acquis (20% temps révision)</span><br>
+                <span style="background: #fed7aa; padding: 3px 8px; border-radius: 4px;">🔶 Orange = à réviser (50% temps révision)</span><br>
+                <span style="background: #fed7d7; padding: 3px 8px; border-radius: 4px;">🔴 Rouge = incompris (30% temps révision)</span><br>
+                <strong>Pro tip :</strong> Révise le rouge avec un camarade qui maîtrise, ça marche 2x mieux qu'en solo !</p>
+            </div>
+            
+            <div class="tip pro-tip">
+                <h4>Rétroplanning infaillible pour tous tes projets</h4>
+                <p><strong>Exemple pour un dossier rendu le 15 :</strong><br>
+                • 15 : Rendu final<br>
+                • 14 : Relecture finale + corrections mineures<br>
+                • 12-13 : Mise en page + bibliographie<br>
+                • 8-11 : Rédaction complète<br>
+                • 6-7 : Recherches complémentaires<br>
+                • 4-5 : Plan détaillé + premières rédactions<br>
+                • 1-3 : Brainstorming + recherches préliminaires<br>
+                <span class="highlight">Règle d'or</span> : Toujours prévoir 20% de temps en plus pour les imprévus !</p>
+            </div>
+
+            <div class="tip tool-spotlight">
+                <h4>Apps et plateformes pour rester connecté</h4>
+                <p><strong>WhatsApp :</strong> Groupes par promo + matière + projets<br>
+                <strong>Discord :</strong> Serveurs étudiants avec salons par matière + vocal pour révisions collectives<br>
+                <strong>Messenger :</strong> Événements Facebook étudiants + groupes vente/échange<br>
+                <strong>Instagram :</strong> Stories quotidiennes = visibilité + comptes assos pour rester informé<br>
+                <strong>Snapchat :</strong> Moins formel, parfait pour organiser sorties/révisions spontanées</p>
+            </div>
+
+            <div class="tip hack">
+                <h4>Techniques d'intégration rapide (les premières semaines)</h4>
+                <p><strong>La technique du "oui" :</strong> Dis oui aux 3 premières invitations (soirée, restau, ciné)<br>
+                <strong>Sois le connecteur :</strong> Présente les gens entre eux "Tu connais X ? Il étudie aussi Y"<br>
+                <strong>Organise toi-même :</strong> "On fait une pause café ?" "Qui veut réviser ensemble ?"<br>
+                <strong>Mémorise les prénoms :</strong> Répète le prénom 3 fois dans la conversation<br>
+                <strong>Trouve ton "buddy" :</strong> 1 personne avec qui tu partages tout = sécurité sociale</p>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2><span class="category-icon">💼</span>Projets/stages/monde pro</h2>
+            
+            <div class="tip pro-tip">
+                <h4>CV étudiant qui cartonne (template step-by-step)</h4>
+                <p><strong>Header :</strong> Nom + téléphone + mail pro (prenom.nom@gmail.com) + LinkedIn + ville<br>
+                <strong>Accroche :</strong> "Étudiant(e) [formation] recherche stage [durée] en [domaine]"<br>
+                <strong>Formation :</strong> Diplôme + école + dates + mention/moyenne si >14<br>
+                <strong>Expériences :</strong> Jobs d'été/étudiants avec compétences transférables :<br>
+                → "Serveur McDo" = "Gestion stress + service client + travail équipe"<br>
+                → "Baby-sitting" = "Responsabilité + pédagogie + gestion conflit"<br>
+                <strong>Projets d'études :</strong> 2-3 projets avec résultats concrets<br>
+                <strong>Compétences :</strong> Langues (niveau) + logiciels maîtrisés + certifications<br>
+                <span class="highlight">Format :</span> 1 page, police Calibri 11pt, PDF uniquement</p>
+            </div>
+
+            <div class="tip hack">
+                <h4>Recherche de stage : méthode scientifique</h4>
+                <p><strong>Phase 1 - Ciblage (2 semaines avant) :</strong><br>
+                • Liste 50 entreprises cibles via LinkedIn/Google<br>
+                • Trouve les RH/managers sur LinkedIn<br>
+                • Étudie leur actualité (site web + réseaux sociaux)<br>
+                
+                <strong>Phase 2 - Candidature personnalisée :</strong><br>
+                • Mail objet : "Candidature stage [poste] - [tes 2 atouts principaux]"<br>
+                • 3 paragraphes max : qui tu es, pourquoi eux, ce que tu apportes<br>
+                • Relance après 1 semaine si pas de réponse<br>
+                
+                <strong>Phase 3 - Entretien :</strong><br>
+                • Prépare 5 questions sur l'entreprise/poste<br>
+                • Story-telling avec méthode STAR (Situation-Tâche-Action-Résultat)<br>
+                • Arrives 10 min en avance, tenue pro, smartphone éteint</p>
+            </div>
+
+            <div class="tip tool-spotlight">
+                <h4>Survie aux projets de groupe (méthode infaillible)</h4>
+                <p><strong>Kickoff meeting (1h) :</strong><br>
+                • Définir objectifs SMART + deadlines intermédiaires<br>
+                • Répartir rôles selon forces : Chef projet, Recherche, Rédaction, Design<br>
+                • Choisir outils : Trello/Notion + Google Drive + WhatsApp groupe<br>
+                
+                <strong>Organisation hebdomadaire :</strong><br>
+                • Point d'avancement chaque mercredi 30 min<br>
+                • Document partagé avec avancement de chacun<br>
+                • Buffer 20% sur chaque tâche pour les imprévus<br>
+                
+                <strong>Gestion des profils difficiles :</strong><br>
+                • Le fantôme → Lui donner tâches précises avec deadline courte<br>
+                • Le perfectionniste → Le mettre sur relecture finale uniquement<br>
+                • Le leader toxique → Proposer vote démocratique sur décisions importantes</p>
+            </div>
+
+            <div class="tip">
+                <h4>Conseils pro pour entretiens (du concret)</h4>
+                <p><strong>Questions classiques + tes réponses types :</strong><br>
+                "Parlez-moi de vous" → Parcours en 2 min + passion pour le domaine<br>
+                "Pourquoi notre entreprise ?" → 1 fait précis sur eux + lien avec ton projet<br>
+                "Vos défauts ?" → Défaut réel + actions concrètes d'amélioration<br>
+                "Questions à poser ?" → "Comment mesure-t-on la réussite dans ce poste ?"<br>
+                
+                <strong>Techniques de communication :</strong><br>
+                • Contact visuel 80% du temps<br>
+                • Reformule leurs questions pour gagner du temps de réflexion<br>
+                • Utilise leurs mots/vocabulaire (effet miroir)<br>
+                • Raconte des histoires courtes avec chiffres si possible</p>
+            </div>
+
+            <div class="tip pro-tip">
+                <h4>Maximiser ton stage de fin d'année (44 jours)</h4>
+                <p><strong>Première semaine :</strong> Rencontre informelle avec 5 personnes différentes<br>
+                <strong>Routine quotidienne :</strong> Note 3 apprentissages dans un carnet<br>
+                <strong>Initiatives :</strong> Propose 1 amélioration/semaine (même petite)<br>
+                <strong>Réseau :</strong> LinkedIn avec tous tes collègues + recommendations mutuelles<br>
+                <strong>Rapport final :</strong> Commence à rédiger dès semaine 2, pas à la fin !<br>
+                <span class="highlight">Objectif :</span> Décrocher une recommandation écrite + éventuel job après études</p>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2><span class="category-icon">🏠</span>Bons plans locaux & "survie quotidienne"</h2>
+            
+            <div class="tip hack">
+                <h4>Lieux secrets pour travailler au calme (testés et approuvés)</h4>
+                <p><strong>BU de l'école :</strong> Juste derrière l'école, LA bibliothèque principale avec box groupes et étages silencieux<br>
+                <strong>Bibliothèques de quartier :</strong> Moins bondées, WiFi gratuit, horaires étendues<br>
+                <strong>Cafés "étudiants-friendly" :</strong><br>
+                • Starbucks : WiFi illimité, prises partout, ambiance studieuse<br>
+                • McDonald's : 24h/24 certains, gratuit si tu commandes<br>
+                • Cafés indé avec "tarif étudiant" (café + croissant 3€)<br>
+                <strong>Spots gratuits :</strong><br>
+                • Hall gares (WiFi + calme tôt le matin)<br>
+                • Médiathèques (ressources numériques gratuites)<br>
+                • Espaces coworking gratuits dans mairies<br>
+                • Campus autres écoles (souvent accessibles)</p>
+            </div>
+
+            <div class="tip pro-tip">
+                <h4>Gestion stress & mental (ça compte autant que les notes)</h4>
+                <p><strong>Routines anti-stress rapides :</strong><br>
+                • Cohérence cardiaque : 5 sec inspiration, 5 sec expiration × 5 min<br>
+                • Box breathing : 4 sec inspire, 4 sec retiens, 4 sec expire, 4 sec pause<br>
+                • Marche active 10 min entre 2 cours = reset mental<br>
+                
+                <strong>Préparation examens/oraux :</strong><br>
+                • Visualisation positive 5 min/jour la semaine précédente<br>
+                • Simulation conditions réelles (chrono + stress)<br>
+                • Prépare affaires la veille pour éviter stress matinal<br>
+                • Petit-déj consistant mais léger (évite sucre rapide)<br>
+                
+                <strong>Apps bien-être étudiantes :</strong><br>
+                <span class="highlight">Headspace</span> gratuit étudiants | <span class="highlight">Calm</span> méditations courtes | <span class="highlight">Insight Timer</span> communauté + sessions live</p>
+            </div>
+
+            <div class="tip">
+                <h4>Optimisation budget étudiant (every euro counts)</h4>
+                <p><strong>Alimentation maligne :</strong><br>
+                • Batch cooking dimanche = 5 repas prêts pour 15€<br>
+                • Apps anti-gaspi : TooGoodToGo, Optimiam (50% réduction)<br>
+                • Marchés 1h avant fermeture = négociation possible<br>
+                • Marques distributeur = -30% minimum vs marques<br>
+                
+                <strong>Transport économique :</strong><br>
+                • Vélos abandon/consigne université souvent gratuits<br>
+                • Covoiturage BlaBlaCar quotidien (pas que long trajet)<br>
+                • Abonnement transport : calcul si >40€ tickets/mois<br>
+                • Marche = 0€ + sport + découverte quartiers<br>
+                
+                <strong>Loisirs pas chers :</strong><br>
+                • Cinés : séances 1ère avant 12h, mardis étudiants<br>
+                • Sport : SUAPS université, associations, running gratuit<br>
+                • Culture : nuits musées gratuites, théâtres places dernière minute</p>
+            </div>
+
+            <div class="tip tool-spotlight">
+                <h4>Apps indispensables du quotidien étudiant</h4>
+                <div class="apps-grid">
+                    <div class="app-card">
+                        <div class="app-icon">💰</div>
+                        <h5>Bankin'/YNAB</h5>
+                        <p>Suivi budget automatique + alertes dépassement + catégorisation</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🍽️</div>
+                        <h5>TooGoodToGo</h5>
+                        <p>Paniers anti-gaspi restaurants -50% + géolocalisation</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🚗</div>
+                        <h5>Citymapper</h5>
+                        <p>Tous transports + vélos + temps réel + prix comparés</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">📱</div>
+                        <h5>CamScanner</h5>
+                        <p>Scan documents + PDF + signature électronique gratuite</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🏠</div>
+                        <h5>LeBonCoin</h5>
+                        <p>Meubles/déco/électronique occasion + alertes recherche</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">💊</div>
+                        <h5>Qare/Doctolib</h5>
+                        <p>Téléconsultation 25€ remboursés + RDV médecins rapides</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip hack">
+                <h4>Hacks vie quotidienne (les petits trucs qui changent tout)</h4>
+                <p><strong>Organisation chambre/appart :</strong><br>
+                • Méthode KonMari pour désencombrer = gain temps + focus<br>
+                • Multiprise avec USB intégrées = 1 seul chargeur<br>
+                • Planning ménage 15 min/jour vs 3h weekend<br>
+                
+                <strong>Optimisation temps :</strong><br>
+                • Prépare tenues semaine le dimanche<br>
+                • Batch tes tâches identiques (courses, mails, ménage)<br>
+                • Règle 2 minutes : si ça prend <2min, fais-le maintenant<br>
+                
+                <strong>Santé préventive :</strong><br>
+                • Vitamines D+B12 en hiver (fatigue étudiante classique)<br>
+                • 8 verres eau/jour avec appli rappel<br>
+                • Sommeil : même horaire weekend/semaine (+/- 1h max)</p>
+            </div>
+        </div>
+
+        <div class="avoid-box">
+            <h3>⚠️ Les 10 erreurs fatales de première année</h3>
+            <ul>
+                <li><strong>Ne pas demander d'aide quand tu galères :</strong> Pride comes before the fall. Tes profs et AP sont là pour ça, utilise-les !</li>
+                <li><strong>Croire que "juste" assister aux cours suffit :</strong> Ratio réel = 1h cours = 2h travail perso. Sinon tu coules.</li>
+                <li><strong>Procrastiner sur les gros projets :</strong> "J'ai le temps" est le début de la fin. Start ugly, improve later.</li>
+                <li><strong>Ignorer complètement les mails administratifs :</strong> Ces deadlines ne rigolent pas. 1 mail loupé = potentiels gros problèmes.</li>
+                <li><strong>Mal gérer les projets de groupe :</strong> Pas d'organisation = chaos garanti. Define roles from day 1.</li>
+                <li><strong>Surcharger ton planning sans buffer :</strong> Job + cours + sorties + sport = burnout assuré si pas équilibré.</li>
+                <li><strong>Rester dans ta bulle sociale :</strong> Élargir ton réseau = opportunités. Sors de ta zone de confort.</li>
+                <li><strong>Négliger ta santé mentale/physique :</strong> Ton corps = ton outil de travail. Investis dedans.</li>
+                <li><strong>Ne pas préparer tes oraux :</strong> "Je vais improviser" = suicide académique. Practice makes perfect.</li>
+                <li><strong>Copier-coller sans comprendre :</strong> Plagiat = exclusion possible + tu apprends rien = échec à long terme.</li>
+            </ul>
+        </div>
+
+        <div class="sos-box">
+            <h3>🆘 Contacts SOS - À avoir absolument dans ton téléphone</h3>
+            
+            <div class="sos-contact">
+                <strong>🏫 Secrétariat pédagogique</strong>
+                <div class="contact-info">secretariat@ecole.fr | 03.XX.XX.XX.XX</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>👩‍🏫 Assistantes pédagogiques (AP)</strong>
+                <div class="contact-info">ap@ecole.fr | Bureau XXX</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>💻 Service informatique / Helpdesk</strong>
+                <div class="contact-info">helpdesk@ecole.fr | 03.XX.XX.XX.XX</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>🏥 Médecine préventive campus</strong>
+                <div class="contact-info">sante@univ.fr | 03.XX.XX.XX.XX</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>💰 CROUS (aides financières urgentes)</strong>
+                <div class="contact-info">crous-lille.fr | 0806 000 278</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>🚨 Urgences psychologiques étudiantes</strong>
+                <div class="contact-info">Nightline : nightline.fr | 01 88 32 12 12</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>📚 Bibliothèque universitaire</strong>
+                <div class="contact-info">bu@univ.fr | Horaires: 8h-22h</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>💬 Groupe WhatsApp promo 2029</strong>
+                <div class="contact-info">[Lien d'invitation à récupérer auprès des AP]</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>🏠 Service logement étudiant</strong>
+                <div class="contact-info">logement@crous.fr | 0806 000 278</div>
+            </div>
+            
+            <div class="sos-contact">
+                <strong>⚖️ Service juridique étudiant gratuit</strong>
+                <div class="contact-info">CIDJ : cidj.com | 01 44 49 12 00</div>
+            </div>
+            
+            <p style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px; font-style: italic; color: #4a5568;">
+                <strong>📝 Note importante :</strong> Les contacts de l'école ci-dessus sont des exemples, à vous de vous informer sur les contacts précis de votre établissement. Cependant, les aides extérieures (CROUS, Nightline, CIDJ) sont les bons contacts réels.
+            </p>
+        </div>
+
+        <div class="conclusion">
+            <h3>🚀 Tu as maintenant toutes les armes secrètes !</h3>
+            <p>Cette première année va être un marathon, pas un sprint. Tu vas galérer parfois, douter, avoir l'impression que tout le monde maîtrise mieux que toi... C'est NORMAL et TEMPORAIRE. Tes aînés sont tous passés par là et ont survécu. Toi aussi tu vas y arriver, et même plus : tu vas kiffer cette expérience unique !</p>
+            
+            <p><strong>Rappel important :</strong> L'échec fait partie de l'apprentissage. Une mauvaise note, un projet raté, un oral foireux... ce ne sont que des étapes, pas des fins en soi. Learn, adapt, overcome.</p>
+            
+            <div class="first-steps">
+                <h4>📅 Ton plan d'action - 7 premiers jours :</h4>
+                <ol>
+                    <li><strong>Jour 1-2 :</strong> Setup digital complet (ENT + mails + apps recommandées + contacts SOS)</li>
+                    <li><strong>Jour 3-4 :</strong> Networking social (groupes WhatsApp + présentation aux voisins + 1ère sortie)</li>
+                    <li><strong>Jour 5-6 :</strong> LinkedIn + CV basique + inscription 2 associations qui t'intéressent</li>
+                    <li><strong>Jour 7 :</strong> Organisation workspace (physique + digital) + premier rétroplanning sur prochain projet</li>
+                </ol>
+                
+                <p><strong>💪 Challenge personnel :</strong> Applique au moins 3 conseils de ce guide cette semaine et note la différence !</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                <p style="font-size: 1.1em; font-weight: 600; margin: 0;">
+                    🌟 "Le succès, c'est 1% d'inspiration et 99% de transpiration... bien organisée !" 🌟
+                </p>
+                <p style="font-size: 0.9em; margin: 10px 0 0 0; font-style: italic;">
+                    — Créé avec ❤️ par tes aînés qui sont passés par là —
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>>Techniques de mémorisation qui marchent vraiment</h4>
+                <p><strong>Flashcards digitales :</strong> <span class="highlight">Anki</span> avec répétition espacée automatique<br>
+                <strong>Mind mapping :</strong> <span class="highlight">XMind</span> pour les cours denses (histoire, droit, etc.)<br>
+                <strong>Méthode Feynman :</strong> Explique le cours à voix haute comme si tu l'enseignais à un enfant de 12 ans<br>
+                <strong>Palace de mémoire :</strong> Associe chaque notion à un lieu familier de chez toi</p>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2><span class="category-icon">💻</span>Vie pratique & campus/outils</h2>
+            
+            <div class="tip hack">
+                <h4>Checklist de rentrée complète (à faire dans les 48h)</h4>
+                <p>✅ ENT activé + mot de passe noté dans ton gestionnaire<br>
+                ✅ Mail campus configuré sur ton téléphone + signature automatique<br>
+                ✅ WiFi campus connecté + eduroam configuré<br>
+                ✅ Code imprimante récupéré + test d'impression<br>
+                ✅ Numéros AP/secrétariat/maintenance en contacts<br>
+                ✅ Plan du campus téléchargé hors-ligne<br>
+                ✅ Carte étudiante obtenue + photocopie faite<br>
+                ✅ Assurance étudiante + mutuelle à jour (facultatif mais recommandé)</p>
+            </div>
+            
+            <div class="tip">
+                <h4>Boîte à outils digitale de survie</h4>
+                <div class="apps-grid">
+                    <div class="app-card">
+                        <div class="app-icon">📝</div>
+                        <h5>Notion</h5>
+                        <p>Tableau unique "Cours-Projets-Examens" + templates étudiants gratuits</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🎨</div>
+                        <h5>Canva Pro</h5>
+                        <p>Gratuit avec ton mail étudiant ! Présentations stylées en 10 min</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">☁️</div>
+                        <h5>Google Drive</h5>
+                        <p>15 Go gratuits + co-rédaction temps réel + historique versions</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">✍️</div>
+                        <h5>Grammarly</h5>
+                        <p>Correction automatique français/anglais + suggestions de style</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">📋</div>
+                        <h5>Trello</h5>
+                        <p>Méthode Kanban pour projets de groupe : À faire → En cours → Fini</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🔍</div>
+                        <h5>Zotero</h5>
+                        <p>Gestion bibliographie automatique + extension navigateur</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip pro-tip">
+                <h4>Bons plans financiers ultra-précis</h4>
+                <p><strong>Restauration :</strong> Resto U à 3,30€ | Crous'Menu à 1€ si boursier | Comptoir des Copains pour les afterworks<br>
+                <strong>Culture :</strong> Carte jeune SNCF (-27 ans) : -30% | Cinémas UGC illimité étudiant : 19,90€/mois | Théâtres : places à 10€ avec carte étudiante<br>
+                <strong>Livres :</strong> Gibert Joseph d'occasion | Facebook Marketplace local | Emprunt BU + scan des chapitres importants<br>
+                <strong>Transport :</strong> BlaBlaCar étudiant | Vélo campus gratuit/consigne | Abonnements transports réduits<br>
+                <strong>Logement :</strong> APL simulateur sur caf.fr | Colocation via leboncoin/lacartedescolocs | Résidences CROUS prioritaires</p>
+            </div>
+
+            <div class="tip">
+                <h4>Lexique de survie : décrypte le jargon universitaire</h4>
+                <p><strong>AP</strong> = Assistant Pédagogique (ta bouée de sauvetage administrative)<br>
+                <strong>CRE</strong> = Comité Relations Entreprise (évaluation orale)<br>
+                <strong>RNCP</strong> = Répertoire National Certifications Professionnelles (gage qualité du diplôme)<br>
+                <strong>ECTS</strong> = European Credits (30 ECTS = 1 semestre = ~900h de travail)<br>
+                <strong>VAE</strong> = Validation Acquis d'Expérience (faire valoir ton expérience pro)<br>
+                <strong>UE</strong> = Unité d'Enseignement (groupe de matières évaluées ensemble)<br>
+                <strong>CC</strong> = Contrôle Continu vs <strong>ET</strong> = Examen Terminal</p>
+            </div>
+
+            <div class="legend">
+                <h4>🏗️ Codes implicites du campus à connaître absolument</h4>
+                <div class="legend-item">
+                    <span class="legend-icon">⏰</span>
+                    <span>Pour les retards : premières heures de pointe (8h) plus cool, sinon vaut mieux être à l'heure</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">📧</span>
+                    <span>Mail : objet précis + "Bonjour M./Mme + NOM" + signature = réponse rapide</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">📅</span>
+                    <span>Deadlines administratives = RÉELLES (pas de négociation possible)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🎓</span>
+                    <span>Un 2e/3e année peut te sauver un semestre : cultive ces relations !</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">👔</span>
+                    <span>Dress code : comme tu veux mais dose, c'est pas les vacances</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">☕</span>
+                    <span>Machine à café = centre névralgique des infos officieuses</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2><span class="category-icon">🤝</span>Vie sociale & réseau</h2>
+            
+            <div class="tip hack">
+                <h4>Stratégie réseau social étudiant (les vraies techniques)</h4>
+                <p><strong>Semaine 1 :</strong> Rejoins TOUS les groupes WhatsApp/Discord de ta promo<br>
+                <strong>Semaine 2 :</strong> Identifie les "connecteurs" (ceux qui connaissent tout le monde)<br>
+                <strong>Mois 1 :</strong> Adhère à minimum 2 associations (1 pour tes passions + 1 pour ton CV)<br>
+                <strong>Afterworks :</strong> Participe aux événements post-cours, c'est là que les vrais liens se créent<br>
+                <strong>Hack social :</strong> Sois celui qui partage les cours, les infos, qui aide = popularité naturelle</p>
+            </div>
+            
+            <div class="tip pro-tip">
+                <h4>LinkedIn dès la 1ère année : guide complet</h4>
+                <p><strong>Photo de profil :</strong> Professionnelle mais souriante, fond neutre, regard caméra<br>
+                <strong>Titre :</strong> "Étudiant(e) en [Formation] à [École] | Passionné(e) par [domaine]"<br>
+                <strong>Résumé :</strong> 3 lignes max : ton parcours, tes projets, ta vision<br>
+                <strong>Stratégie connexions :</strong> Connecte-toi avec tes camarades + intervenants + alumni<br>
+                <strong>Contenu :</strong> 1 post/semaine sur tes projets d'école, stages, événements<br>
+                <span class="highlight">Objectif :</span> 200 connexions avant la fin d'année = réseau solide pour stages</p>
+            </div>
+            
+            <div class="tip">
+                <h4>Guide des associations : où investir ton temps</h4>
+                <p><strong>BDE (Bureau des Étudiants) :</strong> Événements, soirées, cohésion | Compétences : event planning, budget<br>
+                <strong>Associations sportives :</strong> Décompression + esprit équipe | UNSS/championnats inter-écoles<br>
+                <strong>Clubs passion :</strong> Photo, débat, cuisine, théâtre | Développement personnel + détente<br>
+                <strong>Tutorat/parrainage :</strong> Aide aux nouveaux | Compétence pédagogie + reconnaissance école<br>
+                <span class="highlight">Règle d'or :</span> Mieux vaut être actif dans 2 assos que passif dans 5 !</p>
+            </div>
+
+            <div class="tip tool-spotlight">
+                <h4
